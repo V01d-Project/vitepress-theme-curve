@@ -4,7 +4,7 @@ tags: [再见]
 categories: [已归档]
 date: 2025-07-01
 description: “我们已经没有什么不能失去的了。”
-top: true
+top: 99
 references:
   - title: 生命不只有一种定义，躯体束缚了人类的视野，人类敬畏历史，却轻视未来。
     url: #

@@ -30,12 +30,27 @@ const getPostMDFilePaths = async () => {
 const compareDate = (obj1, obj2) => {
   return obj1.date < obj2.date ? 1 : -1;
 };
-const comparePostPriority = (a, b) => {
-  if (a.top && !b.top) {
-    return -1;
+const getTopValue = (top) => {
+  if (typeof top === "number") {
+    return top;
   }
-  if (!a.top && b.top) {
+  if (top === true) {
     return 1;
+  }
+  if (typeof top === "string") {
+    const parsed = Number(top);
+    if (!isNaN(parsed)) {
+      return parsed;
+    }
+  }
+  return 0;
+};
+
+const comparePostPriority = (a, b) => {
+  const topA = getTopValue(a.top);
+  const topB = getTopValue(b.top);
+  if (topA !== topB) {
+    return topB - topA;
   }
   return compareDate(a, b);
 };
