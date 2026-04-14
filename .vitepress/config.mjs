@@ -121,6 +121,7 @@ export default withPwa(
     },
     // PWA
     pwa: {
+      disable: true
       registerType: "autoUpdate",
       selfDestroying: true,
       workbox: {
